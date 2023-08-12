@@ -115,8 +115,8 @@ router.post('/', auth, async (req, res) => {
   });
 
 // DELETE a movie
-router.delete('/:id', auth, (req, res) => {
-    Review.destroy({
+router.delete('/:id', (req, res) => {
+    Movie.destroy({
         where: {
             id: req.params.id
         }
