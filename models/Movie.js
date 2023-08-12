@@ -11,16 +11,20 @@ Movie.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        rating: {
-            type: DataTypes.INTEGER,
+        rated: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        released: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
         runtime: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         genre: {
@@ -32,6 +36,10 @@ Movie.init(
             allowNull: false,
         },
         writer: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        actors: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -47,7 +55,7 @@ Movie.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        movie_poster: {
+        poster: {
             type: DataTypes.STRING,
             allowNull: false,
         },
