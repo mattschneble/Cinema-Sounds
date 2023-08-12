@@ -27,7 +27,23 @@ Movie.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        director: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        writer: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        plot: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         language: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        awards: {
             type: DataTypes.STRING,
             allowNull: false,
         },
