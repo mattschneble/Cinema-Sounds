@@ -8,6 +8,6 @@ const auth = (req, res, next) => {
         next();
     }
 };
-
+// random comment
 // export the middleware
 module.exports = auth;
