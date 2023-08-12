@@ -4,7 +4,7 @@ const { Movie } = require('../../models');
 const auth = require('../../utils/auth');
 
 // GET all movies
-router.get('/', auth, (req, res) => {
+router.get('/', (req, res) => {
     Movie.findAll({
         attributes: [
             'id',
@@ -29,9 +29,9 @@ router.get('/', auth, (req, res) => {
     });
 });
 
-// GET a specific movies
-router.get('/:id', auth, (req, res) => {
-    Movie.findByPk({
+// GET a specific movie
+router.get('/:id', (req, res) => {
+    Movie.findByPk(req.params.id, {
         attributes: [
             'id',
             'title',
