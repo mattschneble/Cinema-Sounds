@@ -8,7 +8,7 @@ router.get('/', auth, (req, res) => {
     Movie.findAll({
         attributes: [
             'id',
-            'name',
+            'title',
             'rating',
             'runtime',
             'genre',
@@ -32,7 +32,7 @@ router.get('/:id', auth, (req, res) => {
     Movie.findByPk({
         attributes: [
             'id',
-            'name',
+            'title',
             'rating',
             'runtime',
             'genre',
@@ -56,7 +56,7 @@ router.get('/recent', (req, res) => {
     Movie.findOne({
         attributes: [
             'id',
-            'name',
+            'title',
             'rating',
             'runtime',
             'genre'
