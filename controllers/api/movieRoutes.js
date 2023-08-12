@@ -4,7 +4,7 @@ const { Movie } = require('../../models');
 const auth = require('../../utils/auth');
 
 // GET all movies
-router.get('/', auth, (req, res) => {
+router.get('/', (req, res) => {
     Movie.findAll({
         attributes: [
             'id',
@@ -29,9 +29,9 @@ router.get('/', auth, (req, res) => {
     });
 });
 
-// GET a specific movies
-router.get('/:id', auth, (req, res) => {
-    Movie.findByPk({
+// GET a specific movie
+router.get('/:id', (req, res) => {
+    Movie.findByPk(req.params.id, {
         attributes: [
             'id',
             'title',
@@ -76,7 +76,7 @@ router.get('/recent', (req, res) => {
 });
 
 // POST a movie
-router.post('/', withAuth, async (req, res) => {
+router.post('/', auth, async (req, res) => {
     try {
       // Fetch data from OMDB API
       const omdbApiKey = 'YOUR_OMDB_API_KEY'; // Replace with OMDB API key
