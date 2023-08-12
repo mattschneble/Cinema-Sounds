@@ -4,7 +4,7 @@ const { Review } = require('../../models');
 const auth = require('../../utils/auth');
 
 // GET all reviews
-router.get('/', auth, (req, res) => {
+router.get('/', (req, res) => {
     Review.findAll({
         attributes: [
             'id',
@@ -39,7 +39,7 @@ router.get('/recent', (req, res) => {
 });
 
 // POST a review
-router.post('/', auth, (req, res) => {
+router.post('/', (req, res) => {
     Review.create({
         review_text: req.body.review_text,
         review_title: req.body.review_title,
@@ -53,7 +53,7 @@ router.post('/', auth, (req, res) => {
 });
 
 // DELETE a review
-router.delete('/:id', auth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Review.destroy({
         where: {
             id: req.params.id
