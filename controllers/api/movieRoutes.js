@@ -76,7 +76,7 @@ router.get('/recent', (req, res) => {
 });
 
 // POST a movie
-router.post('/', withAuth, async (req, res) => {
+router.post('/', auth, async (req, res) => {
     try {
       // Fetch data from OMDB API
       const omdbApiKey = 'YOUR_OMDB_API_KEY'; // Replace with OMDB API key
