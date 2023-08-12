@@ -8,9 +8,22 @@ router.get('/', (req, res) => {
     Review.findAll({
         attributes: [
             'id',
-            'review_text',
-            'review_title',
-            'created_at'
+            'content'
+        ]
+    })
+    .then(dbReviewData => res.json(dbReviewData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+// GET a specific review
+router.get('/:id', (req, res) => {
+    Review.findByPk(req.params.id, {
+        attributes: [
+            'id',
+            'content'
         ]
     })
     .then(dbReviewData => res.json(dbReviewData))
@@ -25,9 +38,7 @@ router.get('/recent', (req, res) => {
     Review.findOne({
         attributes: [
             'id',
-            'review_text',
-            'review_title',
-            'created_at'
+            'content'
         ],
         order: [['created_at', 'DESC']]
     })
@@ -41,8 +52,7 @@ router.get('/recent', (req, res) => {
 // POST a review
 router.post('/', (req, res) => {
     Review.create({
-        review_text: req.body.review_text,
-        review_title: req.body.review_title,
+        content: req.body.content,
         user_id: req.session.user_id
     })
     .then(dbReviewData => res.json(dbReviewData))
