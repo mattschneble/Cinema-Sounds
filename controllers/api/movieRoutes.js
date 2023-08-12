@@ -8,16 +8,18 @@ router.get('/', auth, (req, res) => {
     Movie.findAll({
         attributes: [
             'id',
-            'name',
-            'rating',
+            'title',
+            'rated',
+            'released',
             'runtime',
             'genre',
             'director',
             'writer',
+            'actors',
             'plot',
             'language',
             'awards',
-            'movie_poster'
+            'poster'
         ]
     })
     .then(dbMovieData => res.json(dbMovieData))
@@ -32,16 +34,18 @@ router.get('/:id', auth, (req, res) => {
     Movie.findByPk({
         attributes: [
             'id',
-            'name',
-            'rating',
+            'title',
+            'rated',
+            'released',
             'runtime',
             'genre',
             'director',
             'writer',
+            'actors',
             'plot',
             'language',
             'awards',
-            'movie_poster'
+            'poster'
         ]
     })
     .then(dbMovieData => res.json(dbMovieData))
@@ -56,8 +60,9 @@ router.get('/recent', (req, res) => {
     Movie.findOne({
         attributes: [
             'id',
-            'name',
-            'rating',
+            'title',
+            'rated',
+            'released',
             'runtime',
             'genre'
         ],
@@ -87,8 +92,19 @@ router.post('/', withAuth, async (req, res) => {
   
       // Create a new movie 
       const newMovie = await Movie.create({
-        title: omdbMovieData.Title,
-        // Add other relevant properties
+        title: omdbMovieData.title,
+        rated: omdbMovieData.rated,
+        released: omdbMovieData.released,
+        runtime: omdbMovieData.runtime,
+        genre: omdbMovieData.genre,
+        director: omdbMovieData.director,
+        writer: omdbMovieData.writer,
+        actors: omdbMovieData.actors,
+        plot: omdbMovieData.plot,
+        language: omdbMovieData.language,
+        awards: omdbMovieData.awards,
+        poster: omdbMovieData.poster,
+
       });
   
       res.json(newMovie);
