@@ -29,12 +29,12 @@ router.get('/:id', (req, res) => {
                 attributes: ['id', 'review_text', 'review_title', 'created_at'],
                 include: {
                     model: Movie,
-                    attributes: ['id', 'name', 'rating']
+                    attributes: ['id', 'title', 'rating']
                 }
             },
             {
                 model: Movie,
-                attributes: ['id', 'name', 'rating']
+                attributes: ['id', 'title', 'rating']
             }
         ]
     })
