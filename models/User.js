@@ -7,7 +7,7 @@ class User extends Model {
         return bcrypt.compare(loginPw, this.password);
     }
 }
-
+// random comment
 User.init(
     {
         id: {
