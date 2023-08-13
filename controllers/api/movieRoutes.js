@@ -5,30 +5,23 @@ const { Movie } = require('../../models');
 const auth = require('../../utils/auth');
 
 // GET all movies
-router.get('/', (req, res) => {
-    Movie.findAll({
-        attributes: [
-            'id',
-            'Title',
-            'Rated',
-            'Released',
-            'Runtime',
-            'Genre',
-            'Director',
-            'Writer',
-            'Actors',
-            'Plot',
-            'Language',
-            'Awards',
-            'Poster'
-        ]
-    })
-    .then(dbMovieData => res.json(dbMovieData))
-    .catch(err => {
-        console.error(err); // Use console.error for errors
-        res.status(500).json({ message: 'Error fetching movies' });
-    });
+router.get('/', async (req, res) => {
+    try {
+        // Fetch most recent searches from the database
+        const recentSearches = await Movie.findAll({
+            attributes: ['Title'],
+            order: [['createdAt', 'DESC']],
+            limit: 3 // Limit the number of recent searches
+        });
+
+        // Render the homepage template and pass recent searches data
+        res.render('homepage', { recentSearches });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Error fetching recent searches' });
+    }
 });
+
 
 // GET a specific movie by ID
 router.get('/:id', (req, res) => {
@@ -92,7 +85,7 @@ router.get('/recent', (req, res) => {
 router.post('/', auth, async (req, res) => {
     try {
         // Input validation
-        const omdbMovieTitle = req.body.movieTitle;
+        const omdbMovieTitle = req.body.text;
         if (!omdbMovieTitle) {
             return res.status(400).json({ message: 'Movie title is required' });
         }
