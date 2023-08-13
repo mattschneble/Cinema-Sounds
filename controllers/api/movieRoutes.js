@@ -123,7 +123,7 @@ router.post('/', auth, async (req, res) => {
             Poster: omdbMovieData.Poster,
         });
 
-        res.json(newMovie);
+        res.json({ movieData: omdbMovieData, newMovie });
     } catch (err) {
         console.error(err);
         res.status(400).json({ message: 'Error creating movie' });
