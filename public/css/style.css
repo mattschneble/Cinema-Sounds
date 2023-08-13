@@ -230,3 +230,100 @@ body, h1, h2, ul, p {
     background-color: #0e0e0e;
   }
   
+
+
+  .review-form input[type="text"] {
+    padding: 10px;
+    width: 10%;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 6px 4px rgb(53, 53, 53);
+    font-weight: bold;
+    
+  }
+
+  .review-form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 6px 4px rgba(53, 53, 53, 0.3);
+    margin-top: 20px;
+  }
+  
+  .review-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .revie-form input[type="text"],
+  .review-form input[type="password"] {
+    padding: 10px;
+    width: 10%;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 6px 4px rgb(53, 53, 53);
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .review-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #000000;
+    border: none;
+    border-radius: 20px;
+    color: #fffcfc;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .review-form button[type="submit"]:hover {
+    background-color: #0e0e0e;
+  }
+  /* Add this CSS code to match the styling */
+.review-form select[name="rating"] {
+  padding: 10px;
+  width: 6%;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(53, 53, 53, 0.2);
+  margin-bottom: 10px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(53, 53, 53, 0.2); /* Shadow */
+  margin-bottom: 10px;
+  background-color: #ffffff; /
+}
+/* Add this CSS code to make the review box larger */
+.review-form textarea[name="review"] {
+  width: 99%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(53, 53, 53, 0.2);
+  margin-bottom: 10px;
+  resize: vertical; /* Allow vertical resizing of the textarea */
+  height: 150px; /* Adjust the height as needed */
+}
+.home-button1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.home-button1 a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3d3d3d;
+  border-radius: 20px;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  width: 8%;
+}
+
+.home-button1 a:hover {
+  background-color: #000000;
+}
+.movie-placeholder {
+height: 40vh;
+width: 50%;
+margin-left: 450px;
+}
