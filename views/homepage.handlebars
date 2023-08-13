@@ -7,13 +7,12 @@
     <button id="searchButton">Search</button>
   </div>
   <div class="recent-searches">
-    <h2>Most Recent Searches</h2>
-    <ul>
-      <li>Search 1</li>
-      <li>Search 2</li>
-      <li>Search 3</li>
-
-    </ul>
-  </div>
+  <h2>Most Recent Searches</h2>
+  <ul>
+    {{#each recentSearches}}
+      <li>{{Title}}</li>
+    {{/each}}
+  </ul>
+</div>
   
   <script src="/js/search.js"></script>
