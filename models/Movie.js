@@ -11,51 +11,51 @@ Movie.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        title: {
+        Title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        rated: {
+        Rated: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        released: {
+        Released: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        runtime: {
+        Runtime: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        genre: {
+        Genre: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        director: {
+        Director: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        writer: {
+        Writer: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        actors: {
+        Actors: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        plot: {
+        Plot: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        language: {
+        Language: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        awards: {
+        Awards: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        poster: {
+        Poster: {
             type: DataTypes.STRING,
             allowNull: false,
         },
