@@ -300,8 +300,8 @@ body, h1, h2, ul, p {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(53, 53, 53, 0.2);
   margin-bottom: 10px;
-  resize: vertical; /* Allow vertical resizing of the textarea */
-  height: 150px; /* Adjust the height as needed */
+  resize: vertical; 
+  height: 150px;
 }
 .home-button1 {
   text-align: center;
