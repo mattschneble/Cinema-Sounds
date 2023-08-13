@@ -8,5 +8,6 @@ const userRoutes = require('./userRoutes');
 router.use('/movie', movieRoutes);
 router.use('/review', reviewRoutes);
 router.use('/user', userRoutes);
+router.use('/album', albumRoutes);
 
 module.exports = router;
