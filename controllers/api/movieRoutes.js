@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const axios = require('axios');
+const { replaceSpacesWithPlus } = require('../../utils/helpers'); 
 const { Movie } = require('../../models');
 const auth = require('../../utils/auth');
 
@@ -8,131 +9,126 @@ router.get('/', (req, res) => {
     Movie.findAll({
         attributes: [
             'id',
-            'title',
-            'rated',
-            'released',
-            'runtime',
-            'genre',
-            'director',
-            'writer',
-            'actors',
-            'plot',
-            'language',
-            'awards',
-            'poster'
+            'Title',
+            'Rated',
+            'Released',
+            'Runtime',
+            'Genre',
+            'Director',
+            'Writer',
+            'Actors',
+            'Plot',
+            'Language',
+            'Awards',
+            'Poster'
         ]
     })
     .then(dbMovieData => res.json(dbMovieData))
     .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+        console.error(err); // Use console.error for errors
+        res.status(500).json({ message: 'Error fetching movies' });
     });
 });
 
-// GET a specific movie
+// GET a specific movie by ID
 router.get('/:id', (req, res) => {
     Movie.findByPk(req.params.id, {
         attributes: [
             'id',
-            'title',
-            'rated',
-            'released',
-            'runtime',
-            'genre',
-            'director',
-            'writer',
-            'actors',
-            'plot',
-            'language',
-            'awards',
-            'poster'
+            'Title',
+            'Rated',
+            'Released',
+            'Runtime',
+            'Genre',
+            'Director',
+            'Writer',
+            'Actors',
+            'Plot',
+            'Language',
+            'Awards',
+            'Poster'
         ]
     })
-    .then(dbMovieData => res.json(dbMovieData))
+    .then(dbMovieData => {
+        if (!dbMovieData) {
+            res.status(404).json({ message: 'Movie not found' });
+            return;
+        }
+        res.json(dbMovieData);
+    })
     .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+        console.error(err);
+        res.status(500).json({ message: 'Error fetching movie' });
     });
 });
 
-// GET the most recent review
+// GET the most recent movie
 router.get('/recent', (req, res) => {
     Movie.findOne({
         attributes: [
             'id',
-            'title',
-            'rated',
-            'released',
-            'runtime',
-            'genre'
+            'Title',
+            'Rated',
+            'Released',
+            'Runtime',
+            'Genre'
         ],
-        order: [['created_at', 'DESC']]
+        order: [['createdAt', 'DESC']] // Use 'createdAt' instead of 'created_at'
     })
-    .then(dbMovieData => res.json(dbMovieData))
+    .then(dbMovieData => {
+        if (!dbMovieData) {
+            res.status(404).json({ message: 'No movies found' });
+            return;
+        }
+        res.json(dbMovieData);
+    })
     .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+        console.error(err);
+        res.status(500).json({ message: 'Error fetching recent movie' });
     });
 });
 
 // POST a movie
 router.post('/', auth, async (req, res) => {
     try {
-      // Fetch data from OMDB API
-      const omdbApiKey = 'YOUR_OMDB_API_KEY'; // Replace with OMDB API key
-      const omdbMovieTitle = req.body.movieTitle; 
-  
-      const omdbApiResponse = await axios.get(`http://www.omdbapi.com/?apikey=${omdbApiKey}&t=${omdbMovieTitle}`);
-  
-      if (omdbApiResponse.data.Response === 'False') {
-        throw new Error('Movie not found on OMDB');
-      }
-  
-      const omdbMovieData = omdbApiResponse.data;
-  
-      // Create a new movie 
-      const newMovie = await Movie.create({
-        title: omdbMovieData.title,
-        rated: omdbMovieData.rated,
-        released: omdbMovieData.released,
-        runtime: omdbMovieData.runtime,
-        genre: omdbMovieData.genre,
-        director: omdbMovieData.director,
-        writer: omdbMovieData.writer,
-        actors: omdbMovieData.actors,
-        plot: omdbMovieData.plot,
-        language: omdbMovieData.language,
-        awards: omdbMovieData.awards,
-        poster: omdbMovieData.poster,
+        // Input validation
+        const omdbMovieTitle = req.body.movieTitle;
+        if (!omdbMovieTitle) {
+            return res.status(400).json({ message: 'Movie title is required' });
+        }
+        const sanitizedMovieTitle = replaceSpacesWithPlus(omdbMovieTitle);
 
-      });
-  
-      res.json(newMovie);
+        // Fetch data from OMDB API
+        const omdbApiResponse = await axios.get(`https://www.omdbapi.com/?apikey=63213007&t=${sanitizedMovieTitle}`);
+
+        if (omdbApiResponse.data.Response === 'False') {
+            throw new Error('Movie not found on OMDB');
+        }
+
+        const omdbMovieData = omdbApiResponse.data;
+
+        // Create a new movie
+        const newMovie = await Movie.create({
+            Title: omdbMovieData.Title,
+            Rated: omdbMovieData.Rated,
+            Released: omdbMovieData.Released,
+            Runtime: omdbMovieData.Runtime,
+            Genre: omdbMovieData.Genre,
+            Director: omdbMovieData.Director,
+            Writer: omdbMovieData.Writer,
+            Actors: omdbMovieData.Actors,
+            Plot: omdbMovieData.Plot,
+            Language: omdbMovieData.Language,
+            Awards: omdbMovieData.Awards,
+            Poster: omdbMovieData.Poster,
+        });
+
+        res.json(newMovie);
     } catch (err) {
-      console.log(err);
-      res.status(400).json({ message: 'Error creating movie' });
+        console.error(err);
+        res.status(400).json({ message: 'Error creating movie' });
     }
-  });
-
-// DELETE a movie
-router.delete('/:id', (req, res) => {
-    Movie.destroy({
-        where: {
-            id: req.params.id
-        }
-    })
-    .then(dbMovieData => {
-        if (!dbMovieData) {
-            res.status(404).json({message: "No movie has been found with this id, and no deletion has occurred. Please try again."});
-            return;
-        }
-        res.json(dbMovieData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
 });
 
-// export the router
+// Export the router
 module.exports = router;
