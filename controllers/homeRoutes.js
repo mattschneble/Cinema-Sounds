@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         },
         {
             model: Album, 
-            attributes: ['name', 'href', 'total_plays'],
+            attributes: ['name', 'href'],
         },
       ],
     });
@@ -41,7 +41,7 @@ router.get('/movie/:id', async (req, res) => {
         },
         {
             model: Album, 
-            attributes: ['name', 'href', 'total_plays'],
+            attributes: ['name', 'href'],
         },
       ],
     });
