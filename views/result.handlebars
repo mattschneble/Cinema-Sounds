@@ -1,30 +1,30 @@
-    <div class="user-actions">
-      <span class="profile-name">Users Name</span>
-      <a href="/logout">Logout</a>
-    </div>
+  <div class="user-actions">
+    <span class="profile-name">Users Name</span>
+    <a href="/logout">Logout</a>
   </div>
+
   <div class="search-bar">
     <input type="text" id="movie-search" placeholder="Search...">
     <button class="search-btn">Search</button>
   </div>
+
+  {{#if movieData}}
   <div class="movie-details">
     <div class="movie-poster">
-      <img src="movie_poster.jpg" alt="Movie Poster">
-    </div>
-   
-    <div class="movie-info">
-      <h1 class="movie-title">Movie Title</h1>
-      <p class="movie-data">Release Date: August 15, 2023<br>Genre: Action, Adventure<br>Director: Jane Smith</p>
+      <img src="{{ movieData.poster }}" alt="Movie Poster">
     </div>
 
-    <div class="stored">
-      
-      <h1>Stored</h1>
+    <div class="movie-info">
+      <h1 class="movie-title">{{ movieData.title }}</h1>
+      <p class="movie-data">{{ movieData.released }}<br>{{ movieData.genre }}<br>{{ movieData.director }}</p>
+    </div>
+
+    <div class="reviews">
+      <h1>Reviews</h1>
     </div>
   </div>
 
   <div class="spotify-link">
     <a href="spotify_link_here">Listen on Spotify</a>
   </div>
-</body>
-</html>
+  {{/if}}
