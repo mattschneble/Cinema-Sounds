@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
             'id',
             'name',
             'href',
-            'total_plays',
             'movie_id'
         ]
     })
@@ -28,7 +27,6 @@ router.get('/:id', (req, res) => {
             'id',
             'name',
             'href',
-            'total_plays',
             'movie_id'
         ]
     })
@@ -46,7 +44,6 @@ router.get('/recent', (req, res) => {
             'id',
             'name',
             'href',
-            'total_plays',
             'movie_id'
         ],
         order: [['created_at', 'DESC']]

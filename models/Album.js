@@ -19,10 +19,6 @@ Album.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        total_plays: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
         movie_id: {
             type: DataTypes.INTEGER,
             references: {
