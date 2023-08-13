@@ -20,6 +20,10 @@ Review.belongsTo(Movie, {
     foreignKey: 'movie_id'
 });
 
+Movie.hasOne(Album, {
+    foreignKey: 'movie_id'
+});
+
 Album.belongsTo(Movie, {
     foreignKey: 'movie_id'
 });
