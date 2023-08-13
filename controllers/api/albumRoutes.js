@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     .then(dbAlbumData => res.json(dbAlbumData))
     .catch(err => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(500).json({ message: 'Error fetching albums' });
     });
 });
 
