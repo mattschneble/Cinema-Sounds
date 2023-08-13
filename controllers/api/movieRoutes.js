@@ -92,7 +92,7 @@ router.get('/recent', (req, res) => {
 router.post('/', auth, async (req, res) => {
     try {
         // Input validation
-        const omdbMovieTitle = req.body.movieTitle;
+        const omdbMovieTitle = req.body.text;
         if (!omdbMovieTitle) {
             return res.status(400).json({ message: 'Movie title is required' });
         }
