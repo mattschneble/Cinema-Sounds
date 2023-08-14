@@ -6,7 +6,7 @@
   <h2>Most Recent Searches</h2>
   <ul>
     {{#each movies}}
-      <li><a href="/api/movie/{{this.id}}">{{this.Title}}</a></li>
+      <li><a href="/api/movie/search/{{this.Title}}">{{this.Title}}</a></li>
     {{/each}}
   </ul>
 </div>
