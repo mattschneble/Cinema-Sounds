@@ -4,7 +4,6 @@ const { replaceSpacesWithPlus } = require('../../utils/helpers');
 const { Movie } = require('../../models');
 const auth = require('../../utils/auth');
 
-
 // SEARCH MOVIE BY NAME
 router.get('/search/:keyword', async (req, res) => {
     const omdbApiResponse = await axios.get(`https://www.omdbapi.com/?apikey=63213007&t=${req.params.keyword}`);
