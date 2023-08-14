@@ -1,6 +1,5 @@
 // import express router and models
 const router = require('express').Router();
-const express = require('express');
 const {Movie, User, Review} = require('../../models');
 // import auth middleware
 const auth = require('../../utils/auth');
