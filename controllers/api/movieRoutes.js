@@ -14,15 +14,21 @@ router.get('/search/:keyword', async (req, res) => {
 
     const result = omdbApiResponse.data;
 
-    // res.json({
-    //     movieData: {
-    //         poster: result.Poster,
-    //         title: result.Title,
-    //         released: result.Released,
-    //         genre: result.Genre,
-    //         director: result.Director,
-    //     }
-    // })
+    await Movie.create({
+        Title: result.Title,
+        Rated: result.Rated,
+        Released: result.Released,
+        Runtime: result.Runtime,
+        Genre: result.Genre,
+        Director: result.Director,
+        Writer: result.Writer,
+        Actors: result.Actors,
+        Plot: result.Plot,
+        Language: result.Language,
+        Awards: result.Awards,
+        Poster: result.Poster,
+        
+    });
 
     res.render("result", {
         // have to change logged_in to conditional
@@ -45,7 +51,6 @@ router.get('/', async (req, res) => {
         // Fetch most recent searches from the database
         const recentSearches = await Movie.findAll({
             attributes: ['Title'],
-            order: [['createdAt', 'DESC']],
             limit: 3 // Limit the number of recent searches
         });
 

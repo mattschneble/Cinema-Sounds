@@ -5,8 +5,8 @@
   <div class="recent-searches">
   <h2>Most Recent Searches</h2>
   <ul>
-    {{#each recentSearches}}
-      <li>{{Title}}</li>
+    {{#each movies}}
+      <li><a href="/api/movie/{{this.id}}">{{this.Title}}</a></li>
     {{/each}}
   </ul>
 </div>
