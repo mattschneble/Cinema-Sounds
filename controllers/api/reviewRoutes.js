@@ -51,8 +51,11 @@ router.get('/recent', (req, res) => {
 
 // POST a review
 router.post('/', (req, res) => {
+
+    console.log(req.body)
     Review.create({
-        content: req.body.content,
+        movie_id: req.body.movieId,
+        content: req.body.review,
         user_id: req.session.user_id
     })
     .then(dbReviewData => res.json(dbReviewData))

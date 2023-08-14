@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Cinema Sounds</title>
   <link rel="stylesheet" type="text/css" href="/css/results.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body>
@@ -13,10 +14,23 @@
       <a href="/">Home</a>
     </div>
     <div class="title">
-        <h1 class="animate__animated animate__jackInTheBox">Cinema Sounds</h1>
-      </div>
+      <h1 class="animate__animated animate__jackInTheBox">Cinema Sounds</h1>
+    </div>
 
-    {{{ body }}}
+    {{#if loggedIn}}
+    <div class="user-actions">
+      <span class="profile-name">Users Name</span>
+      <a href="/logout">Logout</a>
+    </div>
+    {{else}}
+    <div class="user-actions">
+      <a href="/login">Login/Signup</a>
+    </div>
+    {{/if}}
+  </div>
+
+  {{{ body }}}
 
 </body>
+
 </html>

@@ -4,6 +4,40 @@ const { replaceSpacesWithPlus } = require('../../utils/helpers');
 const { Movie } = require('../../models');
 const auth = require('../../utils/auth');
 
+
+// SEARCH MOVEI BY NAME
+router.get('/search/:keyword', async (req, res) => {
+    // const sanitizedMovieTitle = replaceSpacesWithPlus(req.params.keyword);
+    const omdbApiResponse = await axios.get(`https://www.omdbapi.com/?apikey=63213007&t=${req.params.keyword}`);
+
+    console.log(omdbApiResponse.data);
+
+    const result = omdbApiResponse.data;
+
+    // res.json({
+    //     movieData: {
+    //         poster: result.Poster,
+    //         title: result.Title,
+    //         released: result.Released,
+    //         genre: result.Genre,
+    //         director: result.Director,
+    //     }
+    // })
+
+    res.render("result", {
+        loggedIn: false,
+        movieData: {
+            movieId: result.imdbID,
+            poster: result.Poster,
+            title: result.Title,
+            released: result.Released,
+            genre: result.Genre,
+            director: result.Director,
+        }
+    })
+
+})
+
 // GET all movies
 router.get('/', async (req, res) => {
     try {
