@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
 // GET a single user by id
 router.get('/:id', (req, res) => {
-    user.findOne({
+    User.findOne({
         attributes: {exclude: ['password']},
         where: {
             id: req.params.id
@@ -63,7 +63,7 @@ router.post('/signup', (req, res) => {
             req.session.email = dbUserData.email;
             req.session.password = dbUserData.password;
             req.session.logged_in = true;
-
+            
             res.json(dbUserData);
         });
     })
@@ -116,7 +116,6 @@ router.post('/login', (req, res) => {
 router.post('/logout', auth, (req, res) => {
     // if the user is logged in, destroy the session and return a success message
     if (req.session.logged_in) {
-    // if(auth) {
         req.session.destroy(() => {
             res.status(204).end();
         });
