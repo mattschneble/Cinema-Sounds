@@ -48,9 +48,10 @@ router.get('/:id', (req, res) => {
 })
 
 // A new user signs up
-router.post('/', (req, res) => {
+router.post('/signup', (req, res) => {
     User.create({
         username: req.body.username,
+        email: req.body.email,
         password: req.body.password
     })
     .then(dbUserData => {
@@ -58,6 +59,8 @@ router.post('/', (req, res) => {
         req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
+            req.session.email = dbUserData.email;
+            req.session.password = dbUserData.password;
             req.session.logged_in = true;
 
             res.json(dbUserData);

@@ -5,7 +5,7 @@ const { Movie } = require('../../models');
 const auth = require('../../utils/auth');
 
 
-// SEARCH MOVEI BY NAME
+// SEARCH MOVIE BY NAME
 router.get('/search/:keyword', async (req, res) => {
     // const sanitizedMovieTitle = replaceSpacesWithPlus(req.params.keyword);
     const omdbApiResponse = await axios.get(`https://www.omdbapi.com/?apikey=63213007&t=${req.params.keyword}`);
@@ -25,7 +25,8 @@ router.get('/search/:keyword', async (req, res) => {
     // })
 
     res.render("result", {
-        loggedIn: false,
+        // have to change logged_in to conditional
+        logged_in: false,
         movieData: {
             movieId: result.imdbID,
             poster: result.Poster,
