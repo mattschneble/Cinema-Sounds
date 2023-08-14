@@ -4,32 +4,33 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all movies and JOIN with user data
-    const movieData = await Movie.findAll({
+    // Get the three most recent movies and JOIN with related data
+    const recentSearches = await Movie.findAll({
       include: [
         {
-          model: Review, 
+          model: Review,
           attributes: ['content'],
         },
         {
-            model: Album, 
-            attributes: ['name', 'href'],
+          model: Album,
+          attributes: ['name', 'href'],
         },
       ],
     });
 
     // Serialize data so the template can read it
-    const movies = movieData.map((movies) => movies.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      movies, 
-      logged_in: req.session.logged_in 
+    const movies = recentSearches.map((movies) => movies.get({ plain: true }));
+    console.log(movies);
+    // Pass serialized data and session flag into the template
+    res.render('homepage', {
+      movies,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 router.get('/movie/:id', async (req, res) => {
   try {
