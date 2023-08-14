@@ -7,37 +7,64 @@ const auth = require('../../utils/auth');
 
 // SEARCH MOVIE BY NAME
 router.get('/search/:keyword', async (req, res) => {
-    // const sanitizedMovieTitle = replaceSpacesWithPlus(req.params.keyword);
     const omdbApiResponse = await axios.get(`https://www.omdbapi.com/?apikey=63213007&t=${req.params.keyword}`);
-
-    console.log(omdbApiResponse.data);
-
+    
     const result = omdbApiResponse.data;
 
-    // res.json({
-    //     movieData: {
-    //         poster: result.Poster,
-    //         title: result.Title,
-    //         released: result.Released,
-    //         genre: result.Genre,
-    //         director: result.Director,
-    //     }
-    // })
+    if (result.Response === 'False') {
+        return res.send('Movie not found'); 
+    }
+    // Check if a movie with the same title exists in the database
+    const existingMovie = await Movie.findOne({
+        where: {
+            Title: result.Title,
+        },
+    });
+    if (existingMovie) {
+        // Movie already exists in the database
+        return res.render("result", {
+            logged_in: false,
+            movieData: {
+                id: result.imdbID,
+                poster: result.Poster,
+                title: result.Title,
+                released: result.Released,
+                genre: result.Genre,
+                director: result.Director,
+            },
+        });
+    }
+     else {
+        // Movie doesn't exist in the database, create a new record
+        await Movie.create({
+            Title: result.Title,
+            Rated: result.Rated,
+            Released: result.Released,
+            Runtime: result.Runtime,
+            Genre: result.Genre,
+            Director: result.Director,
+            Writer: result.Writer,
+            Actors: result.Actors,
+            Plot: result.Plot,
+            Language: result.Language,
+            Awards: result.Awards,
+            Poster: result.Poster,
+        });
 
-    res.render("result", {
-        // have to change logged_in to conditional
-        logged_in: false,
-        movieData: {
-            movieId: result.imdbID,
-            poster: result.Poster,
-            title: result.Title,
-            released: result.Released,
-            genre: result.Genre,
-            director: result.Director,
-        }
-    })
-
-})
+        // Render the result template for the new movie
+        res.render("result", {
+            logged_in: false,
+            movieData: {
+                id: result.imdbID,
+                poster: result.Poster,
+                title: result.Title,
+                released: result.Released,
+                genre: result.Genre,
+                director: result.Director,
+            },
+        });
+    }
+});
 
 // GET all movies
 router.get('/', async (req, res) => {
@@ -45,7 +72,6 @@ router.get('/', async (req, res) => {
         // Fetch most recent searches from the database
         const recentSearches = await Movie.findAll({
             attributes: ['Title'],
-            order: [['createdAt', 'DESC']],
             limit: 3 // Limit the number of recent searches
         });
 

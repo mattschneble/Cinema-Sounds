@@ -7,7 +7,7 @@ body, h1, h2, ul, p {
   body {
     font-family: Arial, sans-serif;
     color: black;
-    background: linear-gradient(to bottom, #575757, #b3b3b3);
+    background: linear-gradient(to bottom, #0068ff, #3633e9);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -18,8 +18,8 @@ body, h1, h2, ul, p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #303030;
-    color: white;
+    background-color: #b8b8b8;
+    color: rgb(0, 0, 0);
     padding: 10px 20px;
   }
   
@@ -40,7 +40,7 @@ body, h1, h2, ul, p {
   }
   
   .logo a:hover {
-    background-color: black;
+    background-color: rgb(0, 0, 0);
   }
   
   .user-actions a {
@@ -82,7 +82,7 @@ body, h1, h2, ul, p {
     width: 60%;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 6px 4px rgb(53, 53, 53);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     font-weight: bold;
     
   }
@@ -90,11 +90,11 @@ body, h1, h2, ul, p {
   /* Search Button */
   .search-bar button {
     padding: 10px 20px;
-    background-color: rgb(73, 73, 73); /* black background */
+    background-color: #16335f65; /* black background */
     color: white;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 6px 4px rgb(53, 53, 53);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     transition: background-color 0.3s, color 0.3s; /* transition effect */
   }
   
@@ -112,6 +112,7 @@ body, h1, h2, ul, p {
     padding: 20px;
     margin-bottom: 30px;
     border-radius: 20px;
+  
 
   }
   
@@ -119,6 +120,7 @@ body, h1, h2, ul, p {
     font-size: 35px;
     margin-bottom: 10px;
     font-weight: bolder;
+    color: #0000008f;
   }
   
   .recent-searches ul {
@@ -139,7 +141,7 @@ body, h1, h2, ul, p {
     width: 10%;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 6px 4px rgb(53, 53, 53);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     font-weight: bold;
     
   }
@@ -148,7 +150,7 @@ body, h1, h2, ul, p {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 6px 4px rgba(53, 53, 53, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     margin-top: 20px;
   }
   
@@ -162,7 +164,7 @@ body, h1, h2, ul, p {
     width: 10%;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 6px 4px rgb(53, 53, 53);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     font-weight: bold;
     margin-bottom: 10px;
   }
@@ -173,19 +175,20 @@ body, h1, h2, ul, p {
     width: 10%;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 6px 4px rgb(53, 53, 53);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     font-weight: bold;
     margin-bottom: 10px;
   }
   
   .signup-form button[type="submit"] {
     padding: 10px 20px;
-    background-color: #000000;
+    background-color:#16335fa6;
     border: none;
     border-radius: 20px;
     color: #fffcfc;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
   }
   
   .signup-form button[type="submit"]:hover {
@@ -197,7 +200,8 @@ body, h1, h2, ul, p {
     width: 10%;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 6px 4px rgb(53, 53, 53);
+  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     font-weight: bold;
     
   }
@@ -206,7 +210,7 @@ body, h1, h2, ul, p {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 6px 4px rgba(53, 53, 53, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     margin-top: 20px;
   }
   
@@ -221,19 +225,20 @@ body, h1, h2, ul, p {
     width: 10%;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 6px 4px rgb(53, 53, 53);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     font-weight: bold;
     margin-bottom: 10px;
   }
   
   .login-form button[type="submit"] {
     padding: 10px 20px;
-    background-color: #000000;
+    background-color: #16335fa6;
     border: none;
     border-radius: 20px;
     color: #fffcfc;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
   }
   
   .login-form button[type="submit"]:hover {
@@ -247,7 +252,7 @@ body, h1, h2, ul, p {
     width: 10%;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 6px 4px rgb(53, 53, 53);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     font-weight: bold;
     
   }
@@ -256,7 +261,7 @@ body, h1, h2, ul, p {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 6px 4px rgba(53, 53, 53, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     margin-top: 20px;
   }
   
@@ -271,19 +276,20 @@ body, h1, h2, ul, p {
     width: 10%;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 6px 4px rgb(53, 53, 53);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
     font-weight: bold;
     margin-bottom: 10px;
   }
   
   .review-form button[type="submit"] {
     padding: 10px 20px;
-    background-color: #000000;
+    background-color: #16335fa6;
     border: none;
     border-radius: 20px;
     color: #fffcfc;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
   }
   
   .review-form button[type="submit"]:hover {
@@ -295,10 +301,10 @@ body, h1, h2, ul, p {
   width: 6%;
   border: none;
   border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(53, 53, 53, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
   margin-bottom: 10px;
   border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(53, 53, 53, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
   margin-bottom: 10px;
   background-color: #ffffff; /
 }
@@ -308,7 +314,7 @@ body, h1, h2, ul, p {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(53, 53, 53, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
   margin-bottom: 10px;
   resize: vertical; 
   height: 150px;
@@ -358,4 +364,7 @@ display: flex;
   align-items: center;
   display: flex;
   justify-content: center;
+}
+.reviews h1 {
+  color: #000000;
 }
