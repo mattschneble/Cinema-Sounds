@@ -1,35 +1,28 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Album extends Model{}
+class Search extends Model{}
 
-Album.init(
-    {
+Search.init(
+    {    
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        href: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        movie_id: {
-            type: DataTypes.INTEGER,
-        },
+        movieId: {
+            type: String,
+            required: true
+        }
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'album'
+        modelName: 'search'
     }
 );
 
-module.exports = Album;
+module.exports = Search;

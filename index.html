@@ -1,56 +1,51 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Cinema Sounds - Submit Review</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <link rel="stylesheet" type="text/css" href="public\css\style.css">
-    
+  <title>Cinema Sounds</title>
+  <link rel="stylesheet" type="text/css" href="/css/results.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-<h2 class="movie-title">Movie Title Goes Here</h2>
+
 <body>
-    <div class="header">
-   
+  <div class="header">
+    <div class="logo">
+      <a href="/">Home</a>
     </div>
-
-
-    <div class="movie-placeholder">
-      
-        <div class="box">
-      this is where we put the movie poster
+    <div class="title">
+        <h1 class="animate__animated animate__jackInTheBox">Cinema Sounds</h1>
       </div>
-   
+
+      <div class="user-actions">
+        <span class="profile-name">Users Name</span>
+        <a href="/logout">Logout</a>
+      </div>
     
-    </div>
+      <div class="search-bar">
+        <input type="text" id="movie-search" placeholder="Search...">
+        <button class="search-btn">Search</button>
+      </div>
+    
+      {{#if movieData}}
+      <div class="movie-details">
+        <div class="movie-poster">
+          <img src="{{ movieData.poster }}" alt="Movie Poster">
+        </div>
+    
+        <div class="movie-info">
+          <h1 class="movie-title">{{ movieData.title }}</h1>
+          <p class="movie-data">{{ movieData.released }}<br>{{ movieData.genre }}<br>{{ movieData.director }}</p>
+        </div>
+    
+        <div class="reviews">
+          <h1>Reviews</h1>
+        </div>
+      </div>
+    
+      <div class="spotify-link">
+        <a href="spotify_link_here">Listen on Spotify</a>
+      </div>
+      {{/if}}
 
-    <div class="review-form">
-        <h2>Submit Your Review</h2>
-        <form action="/submit-review" method="POST">
-        
-
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            
-            <label for="rating">Rating:</label>
-            <select id="rating" name="rating" required>
-                <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-                <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
-                <option value="3">&#9733;&#9733;&#9733;</option>
-                <option value="2">&#9733;&#9733;</option>
-                <option value="1">&#9733;</option>
-            </select>
-
-            <label for="review">Review:</label>
-            <textarea id="review" name="review" placeholder="Your Review" rows="4" required></textarea>
-
-            <button type="submit">Submit Review</button>
-        </form>
-    </div>
-
-    <div class="home-button1">
-        <a href="/">Home</a>
-    </div>
 </body>
-
 </html>
