@@ -95,7 +95,7 @@ body {
 
 
 .movie-poster {
-    flex-basis: 25%;
+    flex-basis: 33%;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     padding: 20px;
@@ -103,7 +103,7 @@ body {
     justify-content: center;
     align-items: flex-end;
     margin-right: 20px;
-    height: 80vh; 
+
 }
 
 
@@ -185,3 +185,16 @@ body {
 .spotify-link a:hover {
     background-color: rgb(15, 99, 3);
 }
+.review-form {
+ 
+    width: 800px; 
+  }
+  
+  .reviews {
+   
+    max-height: 300px; 
+    overflow-y: auto; 
+  }
+ #rating{
+    width: 95px;
+ }

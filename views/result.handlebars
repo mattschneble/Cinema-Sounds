@@ -1,51 +1,45 @@
+<div class="search-bar">
+  <input type="text" id="movie-search" placeholder="Search...">
+  <button class="search-btn" id="searchButton">Search</button>
+</div>
 
-
-
-
-  <div class="search-bar">
-    <input type="text" id="movie-search" placeholder="Search...">
-    <button class="search-btn" id="searchButton">Search</button>
+{{#if movieData}}
+<div class="movie-details">
+  <div class="movie-poster">
+    <img src="{{ movieData.poster }}" alt="Movie Poster">
   </div>
 
-  {{#if movieData}}
-  <div class="movie-details">
-    <div class="movie-poster">
-      <img src="{{ movieData.poster }}" alt="Movie Poster">
-    </div>
-
-    <div class="movie-info">
-      <h1 class="movie-title">{{ movieData.title }}</h1>
-      <p class="movie-data">{{ movieData.released }}<br>{{ movieData.genre }}<br>{{ movieData.director }}</p>
-    </div>
-
-    {{!-- <div class="review-form">
-        <h2>Submit Your Review</h2>
-        <form action="/api/review" method="POST">
-            <input type="hidden" name="movieId" value="{{movieData.movieId}}">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <label for="rating">Rating:</label>
-            <select id="rating" name="rating" required>
-                <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-                <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
-                <option value="3">&#9733;&#9733;&#9733;</option>
-                <option value="2">&#9733;&#9733;</option>
-                <option value="1">&#9733;</option>
-            </select>
-            <label for="review">Review:</label>
-            <textarea id="review" name="review" placeholder="Your Review" rows="4" required></textarea>
-            <button type="submit">Submit Review</button>
-        </form>
-    </div> --}}
-
-    <div class="reviews">
-      <h1>Reviews</h1>
-    </div>
+  <div class="movie-info">
+    <h1 class="movie-title">{{ movieData.title }}</h1>
+    <p class="movie-data">{{ movieData.released }}<br>{{ movieData.genre }}<br>{{ movieData.director }}</p>
   </div>
 
-  <div class="spotify-link">
-    <a href="spotify_link_here">Listen on Spotify</a>
+  <div class="review-form">
+    <h2>Submit Your Review</h2>
+    <form action="/api/review" method="POST">
+      <input type="hidden" name="movieId" value="{{movieData.movieId}}">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <label for="rating">Rating:</label>
+      <select id="rating" name="rating" required>
+        <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+        <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+        <option value="3">&#9733;&#9733;&#9733;</option>
+        <option value="2">&#9733;&#9733;</option>
+        <option value="1">&#9733;</option>
+      </select>
+      <label for="review">Review:</label>
+      <textarea id="review" name="review" placeholder="Your Review" rows="4" required></textarea>
+      <button type="submit">Submit Review</button>
+      <div class="reviews">
+        <h1>Reviews</h1>
+      </div>
   </div>
-  {{/if}}
+  </form>
+</div>
+<div class="spotify-link">
+  <a href="spotify_link_here">Listen on Spotify</a>
+</div>
+{{/if}}
 
-  <script src="/js/search.js"></script>
+<script src="/js/search.js"></script>
