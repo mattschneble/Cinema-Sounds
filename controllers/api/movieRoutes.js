@@ -19,6 +19,7 @@ router.get('/search/:keyword', async (req, res) => {
             Title: result.Title,
         },
     });
+
     
     if (!existingMovie) {
         // Movie doesnt already exists in the database
