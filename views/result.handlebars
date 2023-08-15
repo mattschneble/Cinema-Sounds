@@ -8,12 +8,17 @@
   <div class="movie-poster">
     <img src="{{ movieData.poster }}" alt="Movie Poster">
   </div>
-
+  {{#if logged_in}}
+    <div class="movie-info">
+    <h1 class="movie-title">{{ movieData.title }}</h1>
+    <p class="movie-data">{{ movieData.rated}}<br>{{ movieData.released }}<br>{{ movieData.runtime }}<br>{{ movieData.genre }}<br>{{ movieData.director }}<br>{{ movieData.writer }}<br>{{ movieData.actor }}<br>{{ movieData.plot}}<br>{{ movieData.language}}<br>{{ movieData.awards }}<br></p>
+    </div>
+  {{else}}
   <div class="movie-info">
     <h1 class="movie-title">{{ movieData.title }}</h1>
     <p class="movie-data">{{ movieData.released }}<br>{{ movieData.genre }}<br>{{ movieData.director }}</p>
   </div>
-
+  {{/if}}
   <div class="review-form">
     <h2>Submit Your Review</h2>
     <form action="/api/review" method="POST">
