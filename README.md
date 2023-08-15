@@ -16,7 +16,7 @@
 ***ADD INFORMATION IF NECESSARY***
 
 ## Description
-Cinema Sounds is an application that allows you to look up movie information to determine if you would like to watch a specific movie! You can search for movies by their title and return the rating, runtime, genre, language and the movie poster! ***IT WILL ALSO SHOW YOU A LINK TO THE OFFICIAL SOUNDTRACK ALBUM ON SPOTIFY IF YOU WANT TO PLAY IT.*** If you sign up for an account, or log in to your existing account, you can also leave your own review of the movie! 
+ReelReviews is an application that allows you to look up movie information to determine if you would like to watch a specific movie! You can search for movies by their title and return the rating, runtime, genre, language and the movie poster! If you sign up for an account, or log in to your existing account, you can also leave your own review of the movie! 
 
 ## Technology
 | Technology Used        | Resource URL         |
@@ -41,7 +41,7 @@ Brett Burrington, Minhee Chung, Ryan Pace, Matthew Schneble
 
 ## Contact
 You can reach out to our customer support team at:
- - Email: customersupport@cinemasounds.com
+ - Email: customersupport@reelreviews.com
  - Github: https://github.com/mattschneble/Cinema-Sounds
 
 ## License
