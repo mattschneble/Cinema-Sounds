@@ -40,7 +40,7 @@ router.get('/search/:keyword', async (req, res) => {
     }
         // Render the result template for the new movie
         return res.render("result", {
-            logged_in: true,
+            logged_in: req.session.logged_in,
             movieData: {
                 id: result.imdbID,
                 poster: result.Poster,
