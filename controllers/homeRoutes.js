@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Album, Movie, Review, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { Movie, Review, User } = require('../models');
+const auth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -9,11 +9,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Review,
-          attributes: ['content'],
-        },
-        {
-          model: Album,
-          attributes: ['name', 'href'],
+          attributes: ['content', 'rating', 'movie_id', 'user_id' ],
         },
       ],
     });
@@ -40,10 +36,6 @@ router.get('/movie/:id', async (req, res) => {
           model: Review,
           attributes: ['content'],
         },
-        {
-            model: Album, 
-            attributes: ['name', 'href'],
-        },
       ],
     });
 
@@ -59,7 +51,7 @@ router.get('/movie/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/profile', auth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {

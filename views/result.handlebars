@@ -37,12 +37,15 @@
       <textarea id="review" name="review" placeholder="Your Review" rows="4" required></textarea>
       <button type="submit">Submit Review</button>
       <div class="reviews">
-        <h1>Reviews:</h1>
+    <h1>Reviews:</h1>
+    {{#each reviewsData}}
+      <div class="single-review">
+        <h3> {{ reviewsData.rating }} stars</h3>
+        <p>{{ reviewsData.content }}</p>
       </div>
+    {{/each}}
+  </div>
   </div>
   </form>
 </div>
-{{!-- <div class="spotify-link">
-  <a href="spotify_link_here">Listen on Spotify</a>
-</div> --}}
 {{/if}}
