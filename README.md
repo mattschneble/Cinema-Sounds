@@ -2,15 +2,14 @@
 
 ## Table of Contents
 
-* [Introuduction](#introduction)
+* [Introduction](#introduction)
 * [Description](#description)
-* [Technologies Used](#technologiesused)
+* [Technology](#technology)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contribution](#contribution)
 * [Contact](#contact)
 * [License](#license)
-* [Acknowledgement](#acknowledgement)
 
 ## Introduction
 ***ADD INFORMATION IF NECESSARY***
@@ -28,7 +27,6 @@ ReelReviews is an application that allows you to look up movie information to de
 | Express Session | [https://www.npmjs.com/package/express-session](https://www.npmjs.com/package/express-session) |
 | Animate.CSS | [https://animate.style/](https://animate.style/) |
 | Connect Session Sequelize | [https://www.npmjs.com/package/connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) |
-| cURL | [https://www.npmjs.com/package/curl](https://www.npmjs.com/package/curl) |
 
 ## Installation
 use "npm i" to install all required npm packages. Then run "npm seed" to seed the database, and finally run "npm start".
@@ -37,7 +35,7 @@ use "npm i" to install all required npm packages. Then run "npm seed" to seed th
 ***INSERT SCREENSHOT HERE. INSERT SCREENSHOT HERE.***
 
 ## Contribution
-Brett Burrington, Minhee Chung, Ryan Pace, Matthew Schneble
+Brett Burrington, Minhee Chung, Ryan Payne, Matthew Schneble
 
 ## Contact
 You can reach out to our customer support team at:

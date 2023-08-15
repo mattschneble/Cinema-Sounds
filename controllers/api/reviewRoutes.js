@@ -8,7 +8,10 @@ router.get('/', (req, res) => {
     Review.findAll({
         attributes: [
             'id',
-            'content'
+            'content',
+            'rating',
+            'movie_id',
+            'user_id'
         ]
     })
     .then(dbReviewData => res.json(dbReviewData))
@@ -23,7 +26,10 @@ router.get('/:id', (req, res) => {
     Review.findByPk(req.params.id, {
         attributes: [
             'id',
-            'content'
+            'content',
+            'rating',
+            'movie_id',
+            'user_id'
         ]
     })
     .then(dbReviewData => res.json(dbReviewData))
@@ -38,7 +44,10 @@ router.get('/recent', (req, res) => {
     Review.findOne({
         attributes: [
             'id',
-            'content'
+            'content',
+            'rating',
+            'movie_id',
+            'user_id'
         ],
         order: [['created_at', 'DESC']]
     })
@@ -50,7 +59,8 @@ router.get('/recent', (req, res) => {
 });
 
 // POST a review
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+    try{
     const { review, rating } = req.body; // Destructure content and rating
     console.log('Received content:', review);
     console.log('Received rating:', rating);
@@ -63,17 +73,27 @@ router.post('/', (req, res) => {
         movie_id: movie_id,
         user_id: user_id
     })
-    .then(newReview => {
-        // Redirect or render the template with the new review
-        res.render('submitReview', {
-            newReview, movie_id
-        });
+    const newReview  = await Review.findAll({
+        attributes: [
+            'id',
+            'content',
+            'rating',
+            'movie_id',
+            'user_id'
+        ]
     })
-    .catch(err => {
+        // Redirect or render the template with the new review
+        res.render('result', {
+            newReview
+        });    
+    }
+    
+    catch(err) {
         console.error(err);
         res.status(400).json({ error: 'Error creating review', detailedError: err.message });
-    });
+    };
 });
+
 
 
 // DELETE a review

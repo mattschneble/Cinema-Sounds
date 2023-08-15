@@ -13,20 +13,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (response.ok) {
         const reviewData = await response.json();
-
+    
         // Append the new review to the reviews container
         const newReviewElement = document.createElement('div');
         newReviewElement.classList.add('single-review');
         newReviewElement.innerHTML = `
-          <h3>${reviewData.name} - ${reviewData.rating} stars</h3>
-          <p>${reviewData.content}</p>
+            <h3>User ID: ${reviewData.user_id} - ${reviewData.rating} stars</h3>
+            <p>${reviewData.content}</p>
         `;
         reviewsContainer.appendChild(newReviewElement);
-
+    
         // Clear the form inputs
         reviewForm.reset();
-      } else {
+    } else {
         console.error('Failed to submit review');
-      }
+    }
+    
     });
   });

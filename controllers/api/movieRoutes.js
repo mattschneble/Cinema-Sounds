@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const axios = require('axios');
 const { replaceSpacesWithPlus } = require('../../utils/helpers'); 
-const { Movie } = require('../../models');
+const { Movie, Review } = require('../../models');
 const auth = require('../../utils/auth');
 
 // SEARCH MOVIE BY NAME
@@ -19,6 +19,15 @@ router.get('/search/:keyword', async (req, res) => {
             Title: result.Title,
         },
     });
+    const reviewsData  = await Review.findAll({
+        attributes: [
+            'id',
+            'content',
+            'rating',
+            'movie_id',
+            'user_id'
+        ]
+    })
     if (existingMovie) {
         // Movie already exists in the database
         return res.render("result", {
@@ -37,6 +46,10 @@ router.get('/search/:keyword', async (req, res) => {
                 plot: result.Plot,
                 language: result.Language,
                 awards: result.Awards
+            },
+            reviewsData: {
+                content: Review.content,
+                rating: Review.rating
             },
         });
     }
@@ -67,6 +80,10 @@ router.get('/search/:keyword', async (req, res) => {
                 released: result.Released,
                 genre: result.Genre,
                 director: result.Director,
+            },
+            reviewsData: {
+                content: Review.content,
+                rating: Review.rating
             },
         });
     }
