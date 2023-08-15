@@ -4,13 +4,12 @@
 
 * [Introuduction](#introduction)
 * [Description](#description)
-* [Technologies Used](#technologiesused)
+* [Technology](#technology)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contribution](#contribution)
 * [Contact](#contact)
 * [License](#license)
-* [Acknowledgement](#acknowledgement)
 
 ## Introduction
 ***ADD INFORMATION IF NECESSARY***
