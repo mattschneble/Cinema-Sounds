@@ -1,6 +1,15 @@
 [
     {
-        "content": "Blade Runner was cool"
+        "content": "Blade Runner was cool",
+        "rating": "5",
+        "movie_id": 1,
+        "user_id": 1
+    },
+    {
+        "content": "Guardians was cool",
+        "rating": "5",
+        "movie_id": 2,
+        "user_id": 1
     }
 ]
   
