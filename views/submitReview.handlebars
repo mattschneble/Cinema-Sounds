@@ -5,14 +5,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<h2 class="movie-title">Movie Title Goes Here</h2>
+<h2 class="movie-title">{{movieData.title}}</h2>
 
 <body>
     <div class="header">
     </div>
     <div class="movie-placeholder">
         <div class="box">
-      this is where we put the movie poster
+          <img src="{{ movieData.poster }}" alt="Movie Poster">
       </div>
     </div>
     
@@ -22,6 +22,7 @@
     <div class="spotify-link">
   <a href="spotify_link_here">Listen on Spotify</a>
 </div>
+  <script src="/js/review.js"></script>
 </body>
 </html>
-<script src="/js/review.js"></script>
+

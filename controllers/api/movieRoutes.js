@@ -22,14 +22,21 @@ router.get('/search/:keyword', async (req, res) => {
     if (existingMovie) {
         // Movie already exists in the database
         return res.render("result", {
-            logged_in: false,
+            logged_in: true,
             movieData: {
                 id: result.imdbID,
                 poster: result.Poster,
                 title: result.Title,
+                rated: result.Rated,
                 released: result.Released,
+                runtime: result.Runtime,
                 genre: result.Genre,
                 director: result.Director,
+                writer: result.Writer,
+                actor: result.Actors,
+                plot: result.Plot,
+                language: result.Language,
+                awards: result.Awards
             },
         });
     }
