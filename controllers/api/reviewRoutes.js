@@ -66,7 +66,7 @@ router.get('/recent', (req, res) => {
 });
 
 // POST a review
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
     try {
         const { review, rating } = req.body;
         console.log('Received content:', review);
