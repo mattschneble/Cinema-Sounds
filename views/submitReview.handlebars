@@ -1,27 +1,14 @@
-<div class="header">
-  <div class="home-button1">
-    <a href="/">Home</a>
-  </div>
-</div>
-  <div class="movie-placeholder">
-    <div class="box">
-      <h2 class="movie-title">{{movieData.title}}</h2>
-        <img src="{{ movieData.poster }}" alt="Movie Poster">
-    </div>
-  </div>
-    
-  
-    <div class="reviews">
+<div class="reviews">
     <h1>Reviews:</h1>
     {{#each reviews}}
         <li>
-            <p>Review ID: {{id}}</p>
             <p>Content: {{content}}</p>
             <p>Rating: {{rating}}</p>
-            <p>Movie ID: {{movie_id}}</p>
-            <p>User ID: {{user_id}}</p>
+            <p>Movie: {{Movie.Title}}</p>
+            <p>User ID: {{User.id}}</p>
         </li>
-        {{/each}}
-  </div>
+    {{/each}}
+</div>
+
 
 
