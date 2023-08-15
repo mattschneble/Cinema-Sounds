@@ -35,7 +35,7 @@ use "npm i" to install all required npm packages. Then run "npm seed" to seed th
 ***INSERT SCREENSHOT HERE. INSERT SCREENSHOT HERE.***
 
 ## Contribution
-Brett Burrington, Minhee Chung, Ryan Pace, Matthew Schneble
+Brett Burrington, Minhee Chung, Ryan Payne, Matthew Schneble
 
 ## Contact
 You can reach out to our customer support team at:
