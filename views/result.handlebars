@@ -21,8 +21,8 @@
   {{/if}}
   <div class="review-form">
     <h2>Submit Your Review</h2>
-    <form action="/api/review" method="POST">
-      <input type="hidden" name="movieId" value="{{movieData.movieId}}">
+    <form id="reviewForm">
+      <input id="movieId" type="hidden" name="movieId" value="{{movieData.id}}">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Your Name" required>
       <label for="rating">Rating:</label>
@@ -36,8 +36,11 @@
       <label for="review">Review:</label>
       <textarea id="review" name="review" placeholder="Your Review" rows="4" required></textarea>
       <button type="submit">Submit Review</button>
+      <class id="new">
+        <a href="/api/review">View Reviews</a>
+      </class>
+      
       <div class="reviews">
-    <h1>Reviews:</h1>
     {{#each reviewsData}}
       <div class="single-review">
         <h3> {{ reviewsData.rating }} stars</h3>
@@ -49,4 +52,6 @@
   </form>
 </div>
 {{/if}}
+
+<script src="/js/review.js"></script>
 

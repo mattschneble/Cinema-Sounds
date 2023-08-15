@@ -6,20 +6,23 @@ const auth = require('../../utils/auth');
 // GET all reviews
 router.get('/', async (req, res) => {
     try {
-        const reviewData = await Review.findAll({
-            attributes: [
-                'id',
-                'content',
-                'rating',
-                'movie_id',
-                'user_id'
-            ]
+        const newReviews = await Review.findAll({
+            include: [
+                {
+                    model: Movie,
+                    attributes: [ 'Title' ],
+                },
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
         });
-        const reviews = reviewData.map((review) => review.get({ plain: true }));
-        
+        const reviews = newReviews.map((review) => review.get({ plain: true }));
+        console.log('Retrieved reviews:', reviews);
+
         res.render('submitReview', {
-            reviews,
-            logged_in: req.session.logged_in
+            reviews: reviews
         });
     } catch (err) {
         console.error(err);
@@ -68,37 +71,19 @@ router.get('/recent', (req, res) => {
 // POST a review
 router.post('/', auth, async (req, res) => {
     try {
-        const { review, rating } = req.body;
-        console.log('Received content:', review);
+        const { content, rating, movie_id } = req.body;
+        console.log('Received content:', content);
         console.log('Received rating:', rating);
-        const { movie_id, user_id } = req.session;
+        const { user_id } = req.session;
+        console.log('Received movie_id:', movie_id);
+        console.log('Session user_id:', user_id);
 
         // Create the new review
         await Review.create({
-            content: review, 
+            content: content, 
             rating: rating,   
             movie_id: movie_id,
             user_id: user_id
-        });
-
-        const newReviews = await Review.findAll({
-            include: [
-                {
-                    model: Movie,
-                    attributes: ['id', 'Title', 'Poster'],
-                },
-                {
-                    model: User,
-                    attributes: ['id'],
-                },
-            ],
-        });
-
-        const reviews = newReviews.map((review) => review.get({ plain: true }));
-        console.log('Retrieved reviews:', reviews);
-
-        res.render('submitReview', {
-            reviews: reviews
         });
     } catch (err) {
         console.error(err);
