@@ -28,7 +28,6 @@ ReelReviews is an application that allows you to look up movie information to de
 | Express Session | [https://www.npmjs.com/package/express-session](https://www.npmjs.com/package/express-session) |
 | Animate.CSS | [https://animate.style/](https://animate.style/) |
 | Connect Session Sequelize | [https://www.npmjs.com/package/connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) |
-| cURL | [https://www.npmjs.com/package/curl](https://www.npmjs.com/package/curl) |
 
 ## Installation
 use "npm i" to install all required npm packages. Then run "npm seed" to seed the database, and finally run "npm start".
