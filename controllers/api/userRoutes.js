@@ -63,7 +63,7 @@ router.post('/signup', (req, res) => {
             req.session.password = dbUserData.password;
             req.session.logged_in = true;
             
-            res.json(dbUserData);
+            res.json({ user: dbUserData, logged_in: true });
         });
     })
     .catch(err => {
@@ -102,7 +102,7 @@ router.post('/login', (req, res) => {
             req.session.password = dbUserData.password;
             req.session.logged_in = true;
 
-            res.json({user: dbUserData, message: 'You are now logged in'});
+            res.json({user: dbUserData, message: 'You are now logged in', logged_in: true });
         });
     })
     .catch(err => {
@@ -116,10 +116,12 @@ router.post('/logout', auth, (req, res) => {
     // if the user is logged in, destroy the session and return a success message
     if (req.session.logged_in) {
         req.session.destroy(() => {
-            res.status(204).end();
+            console.log('Session destroyed')
+            res.json({ logged_in: false })
         });
     // otherwise, send an error
     } else {
+        console.log('User not logged in')
         res.status(404).end();
     }
 });

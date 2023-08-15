@@ -11,12 +11,12 @@
   {{#if logged_in}}
     <div class="movie-info">
     <h1 class="movie-title">{{ movieData.title }}</h1>
-    <p class="movie-data">{{ movieData.rated}}<br>{{ movieData.released }}<br>{{ movieData.runtime }}<br>{{ movieData.genre }}<br>{{ movieData.director }}<br>{{ movieData.writer }}<br>{{ movieData.actor }}<br>{{ movieData.plot}}<br>{{ movieData.language}}<br>{{ movieData.awards }}<br></p>
+    <p class="movie-data">Rating: {{ movieData.rated}}<br>Release Date: {{ movieData.released }}<br>Runtime: {{ movieData.runtime }}<br>Genre: {{ movieData.genre }}<br>Director: {{ movieData.director }}<br>Writer: {{ movieData.writer }}<br>Actor: {{ movieData.actor }}<br>Plot: {{ movieData.plot}}<br>Language: {{ movieData.language}}<br>Awards: {{ movieData.awards }}<br></p>
     </div>
   {{else}}
   <div class="movie-info">
     <h1 class="movie-title">{{ movieData.title }}</h1>
-    <p class="movie-data">{{ movieData.released }}<br>{{ movieData.genre }}<br>{{ movieData.director }}</p>
+    <p class="movie-data">Release Date: {{ movieData.released }}<br>Genre: {{ movieData.genre }}<br>Director: {{ movieData.director }}</p>
   </div>
   {{/if}}
   <div class="review-form">
@@ -48,4 +48,11 @@
   </div>
   </form>
 </div>
+<<<<<<< HEAD
+{{!-- <div class="spotify-link">
+  <a href="spotify_link_here">Listen on Spotify</a>
+</div> --}}
 {{/if}}
+=======
+{{/if}}
+>>>>>>> e2eb9b9dd2ed4e4ef8432ff9a66de19b15e14e8c
