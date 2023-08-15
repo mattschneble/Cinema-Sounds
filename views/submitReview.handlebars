@@ -1,28 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cinema Sounds - Submit Review</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<h2 class="movie-title">{{movieData.title}}</h2>
-
-<body>
-    <div class="header">
-    </div>
-    <div class="movie-placeholder">
-        <div class="box">
-          <img src="{{ movieData.poster }}" alt="Movie Poster">
-      </div>
-    </div>
-    
-    <div class="home-button1">
-        <a href="/">Home</a>
-    </div>
-    <div class="spotify-link">
-  <a href="spotify_link_here">Listen on Spotify</a>
+<div class="header">
+  <div class="home-button1">
+    <a href="/">Home</a>
+  </div>
 </div>
-  <script src="/js/review.js"></script>
-</body>
-</html>
+  <div class="movie-placeholder">
+    <div class="box">
+      <h2 class="movie-title">{{movieData.title}}</h2>
+        <img src="{{ movieData.poster }}" alt="Movie Poster">
+    </div>
+  </div>
+    
+  
+    <div class="reviews">
+    <h1>Reviews:</h1>
+    {{#each reviews}}
+        <li>
+            <p>Review ID: {{id}}</p>
+            <p>Content: {{content}}</p>
+            <p>Rating: {{rating}}</p>
+            <p>Movie ID: {{movie_id}}</p>
+            <p>User ID: {{user_id}}</p>
+        </li>
+        {{/each}}
+  </div>
+
 
