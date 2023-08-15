@@ -51,19 +51,30 @@ router.get('/recent', (req, res) => {
 
 // POST a review
 router.post('/', (req, res) => {
+    const { review, rating } = req.body; // Destructure content and rating
+    console.log('Received content:', review);
+    console.log('Received rating:', rating);
+    const { movie_id, user_id } = req.session;
 
-    console.log(req.body)
+    // Create the new review
     Review.create({
-        movie_id: req.body.movieId,
-        content: req.body.review,
-        user_id: req.session.user_id
+        content: review, 
+        rating: rating,   
+        movie_id: movie_id,
+        user_id: user_id
     })
-    .then(dbReviewData => res.json(dbReviewData))
+    .then(newReview => {
+        // Redirect or render the template with the new review
+        res.render('submitReview', {
+            newReview, movie_id
+        });
+    })
     .catch(err => {
-        console.log(err);
-        res.status(400).json(err);
+        console.error(err);
+        res.status(400).json({ error: 'Error creating review', detailedError: err.message });
     });
 });
+
 
 // DELETE a review
 router.delete('/:id', (req, res) => {

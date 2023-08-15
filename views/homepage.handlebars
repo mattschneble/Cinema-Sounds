@@ -5,10 +5,10 @@
   <div class="recent-searches">
   <h2>Most Recent Searches</h2>
   <ul>
-    {{#each recentSearches}}
-      <li>{{Title}}</li>
+    {{#each movies}}
+      <li><a href="/api/movie/search/{{this.Title}}">{{this.Title}}</a></li>
     {{/each}}
   </ul>
 </div>
-  
-  <script src="/js/search.js"></script>
+
+<script src="/js/search.js"></script>

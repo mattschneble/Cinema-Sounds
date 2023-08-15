@@ -17,10 +17,10 @@
       <h1 class="animate__animated animate__jackInTheBox">ReelReviews</h1>
     </div>
 
-    {{#if loggedIn}}
+    {{#if logged_in}}
     <div class="user-actions">
       <span class="profile-name">Users Name</span>
-      <a href="/logout">Logout</a>
+      <a href="/logout" id="logout">Logout</a>
     </div>
     {{else}}
     <div class="user-actions">
@@ -30,6 +30,10 @@
   </div>
 
   {{{ body }}}
+
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 
 </body>
 

@@ -15,6 +15,10 @@ Review.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        rating: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         movie_id: {
             type: DataTypes.INTEGER,
             references: {

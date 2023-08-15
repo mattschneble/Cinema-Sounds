@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 // GET a single user by id
 router.get('/:id', (req, res) => {
-    user.findOne({
+    User.findOne({
         attributes: {exclude: ['password']},
         where: {
             id: req.params.id
@@ -48,9 +48,10 @@ router.get('/:id', (req, res) => {
 })
 
 // A new user signs up
-router.post('/', (req, res) => {
+router.post('/signup', (req, res) => {
     User.create({
         username: req.body.username,
+        email: req.body.email,
         password: req.body.password
     })
     .then(dbUserData => {
@@ -58,8 +59,10 @@ router.post('/', (req, res) => {
         req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
+            req.session.email = dbUserData.email;
+            req.session.password = dbUserData.password;
             req.session.logged_in = true;
-
+            
             res.json(dbUserData);
         });
     })
@@ -73,7 +76,7 @@ router.post('/', (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            username: req.body.username
+            username: req.body.username,
         }
     })
     .then(dbUserData => {
@@ -96,15 +99,20 @@ router.post('/login', (req, res) => {
         req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
+            req.session.password = dbUserData.password;
             req.session.logged_in = true;
 
             res.json({user: dbUserData, message: 'You are now logged in'});
         });
-    });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
 });
 
 // A user logs out
-router.post('/logout', (req, res) => {
+router.post('/logout', auth, (req, res) => {
     // if the user is logged in, destroy the session and return a success message
     if (req.session.logged_in) {
         req.session.destroy(() => {
