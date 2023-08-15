@@ -30,6 +30,7 @@ router.get('/search/:keyword', async (req, res) => {
     })
     if (existingMovie) {
         // Movie already exists in the database
+        //rendering to result.handlebar
         return res.render("result", {
             logged_in: true,
             movieData: {
