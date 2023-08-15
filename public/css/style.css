@@ -416,3 +416,37 @@ body {
   padding-top: 10px;
   white-space: normal; 
 }
+.reviews2 {
+  margin-top: 10px;
+  width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 61vh;
+
+}
+
+.reviews2 h1 {
+  text-align: center;
+}
+
+.reviews2 ul {
+  list-style: none;
+  padding: 0;
+}
+
+.reviews2 li {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  
+}
+.reviews2 p {
+  font-size: larger;
+  font-weight: bold;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+}
