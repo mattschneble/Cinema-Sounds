@@ -116,10 +116,12 @@ router.post('/logout', auth, (req, res) => {
     // if the user is logged in, destroy the session and return a success message
     if (req.session.logged_in) {
         req.session.destroy(() => {
-            res.status(204).end();
+            console.log('Session destroyed')
+            res.json({ logged_in: false })
         });
     // otherwise, send an error
     } else {
+        console.log('User not logged in')
         res.status(404).end();
     }
 });
