@@ -4,6 +4,7 @@ const auth = (req, res, next) => {
     if (!req.session.logged_in) {
         res.redirect('/login');
     } else {
+        res.locals.logged_in = true;
         // otherwise, proceed as planned
         next();
     }

@@ -63,7 +63,7 @@ router.post('/signup', (req, res) => {
             req.session.password = dbUserData.password;
             req.session.logged_in = true;
             
-            res.json(dbUserData);
+            res.json({ user: dbUserData, logged_in: true });
         });
     })
     .catch(err => {
@@ -102,7 +102,7 @@ router.post('/login', (req, res) => {
             req.session.password = dbUserData.password;
             req.session.logged_in = true;
 
-            res.json({user: dbUserData, message: 'You are now logged in'});
+            res.json({user: dbUserData, message: 'You are now logged in', logged_in: true });
         });
     })
     .catch(err => {
