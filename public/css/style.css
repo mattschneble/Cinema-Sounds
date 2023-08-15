@@ -399,3 +399,20 @@ body {
 .reviews h1 {
   color: #ffffff;
 }
+
+.movie-info {
+  width: 300px;
+
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.movie-title {
+  margin-top: 0;
+}
+
+.movie-data {
+  margin: 0;
+  padding-top: 10px;
+  white-space: normal; 
+}
