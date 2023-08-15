@@ -14,7 +14,7 @@ router.get('/search/:keyword', async (req, res) => {
         return res.send('Movie not found'); 
     }
     // Check if a movie with the same title exists in the database
-    const existingMovie = await Movie.findOne({
+    let existingMovie = await Movie.findOne({
         where: {
             Title: result.Title,
         },
@@ -23,7 +23,7 @@ router.get('/search/:keyword', async (req, res) => {
     
     if (!existingMovie) {
         // Movie doesnt already exists in the database
-        await Movie.create({
+existingMovie = await Movie.create({
             Title: result.Title,
             Rated: result.Rated,
             Released: result.Released,
@@ -42,7 +42,7 @@ router.get('/search/:keyword', async (req, res) => {
         return res.render("result", {
             logged_in: req.session.logged_in,
             movieData: {
-                id: result.imdbID,
+                id: existingMovie.id,
                 poster: result.Poster,
                 title: result.Title,
                 rated: result.Rated,

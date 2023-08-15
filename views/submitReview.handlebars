@@ -2,10 +2,10 @@
     <h1>Reviews:</h1>
     {{#each reviews}}
         <li>
+            <p>Movie Title: {{movie.Title}}</p>
+            <p>User's name: {{user.username}}</p>
             <p>Content: {{content}}</p>
             <p>Rating: {{rating}}</p>
-            <p>Movie: {{Movie.Title}}</p>
-            <p>User ID: {{User.id}}</p>
         </li>
     {{/each}}
 </div>
