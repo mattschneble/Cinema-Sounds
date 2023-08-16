@@ -16,7 +16,7 @@ We wanted to be able to look up movie information in a clean and easy to read fo
 
 
 ## Description
-ReelReviews is an application that allows you to look up movie information to determine if you would like to watch a specific movie! You can search for movies by their title and return the rating, runtime, genre, language and the movie poster! If you sign up for an account, or log in to your existing account, you can also leave your own review of the movie! 
+ReelReviews is an application that allows you to look up movie information to determine if you would like to watch a specific movie! You can search for movies by their title and return the rating, runtime, genre, language and the movie poster! If you sign up for an account, or log in to your existing account, you can also leave your own review of the movie! Visit the deployed application! [https://cinemaserver-7dafae9cd971.herokuapp.com/](https://cinemaserver-7dafae9cd971.herokuapp.com/)
 
 ## Technology
 | Technology Used        | Resource URL         |
