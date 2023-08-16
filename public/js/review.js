@@ -1,5 +1,3 @@
-const { formToJSON } = require("axios")
-
 const FormEl = document.querySelector('#reviewForm')
 const movieId = document.querySelector('#movieId')
 const ratingInput = document.querySelector('#rating')
