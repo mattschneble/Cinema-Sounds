@@ -68,7 +68,7 @@ router.get('/recent', (req, res) => {
     });
 });
 
-// POST a review
+// POST a review.
 router.post('/', auth, async (req, res) => {
     try {
         const { content, rating, movie_id } = req.body;
