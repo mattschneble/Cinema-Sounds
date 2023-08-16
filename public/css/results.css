@@ -211,3 +211,22 @@ body {
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
  }
+ #new {
+    padding: 10px 20px;
+    background-color: #16335fa6;
+    border: none;
+    border-radius: 20px;
+    color: #fffcfc;
+    font-weight: bold;
+    font-size: 13px; 
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
+}
+#new a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+#new:hover {
+    background-color: black;
+}
